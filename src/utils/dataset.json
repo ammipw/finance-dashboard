@@ -1,0 +1,84 @@
+{
+  "user": {
+    "id": "u1",
+    "name": "Alex Johnson",
+    "profiles": [
+      {
+        "id": "p1",
+        "type": "Personal",
+        "transactions": [
+          {
+            "id": "t1",
+            "date": "2025-09-01",
+            "description": "Groceries - Whole Foods",
+            "category": "Food",
+            "amount": -82.45,
+            "paymentMethod": "Credit Card"
+          },
+          {
+            "id": "t2",
+            "date": "2025-09-02",
+            "description": "Salary - Tech Corp",
+            "category": "Income",
+            "amount": 4200.00,
+            "paymentMethod": "Bank Transfer"
+          },
+          {
+            "id": "t3",
+            "date": "2025-09-03",
+            "description": "Netflix Subscription",
+            "category": "Entertainment",
+            "amount": -15.99,
+            "paymentMethod": "Credit Card"
+          },
+          {
+            "id": "t4",
+            "date": "2025-09-04",
+            "description": "Gas Station",
+            "category": "Transport",
+            "amount": -45.10,
+            "paymentMethod": "Debit Card"
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "Business",
+        "transactions": [
+          {
+            "id": "t5",
+            "date": "2025-09-01",
+            "description": "Client Payment - Design Project",
+            "category": "Income",
+            "amount": 2500.00,
+            "paymentMethod": "Bank Transfer"
+          },
+          {
+            "id": "t6",
+            "date": "2025-09-02",
+            "description": "Software License - Figma",
+            "category": "Business Expense",
+            "amount": -45.00,
+            "paymentMethod": "Credit Card"
+          },
+          {
+            "id": "t7",
+            "date": "2025-09-03",
+            "description": "Office Supplies",
+            "category": "Business Expense",
+            "amount": -123.40,
+            "paymentMethod": "Debit Card"
+          },
+          {
+            "id": "t8",
+            "date": "2025-09-04",
+            "description": "Coworking Space Rent",
+            "category": "Business Expense",
+            "amount": -600.00,
+            "paymentMethod": "Bank Transfer"
+          }
+        ]
+      }
+    ]
+  }
+}
