@@ -11,8 +11,9 @@ Repo Link
 ## 🛠️ Tech Stack
 - React
 - Next.js
-- Zustand or Redux*
+- Zustand
 - Tailwind CSS
+- Shadcn/ui
 - JSON
 - Vercel
 

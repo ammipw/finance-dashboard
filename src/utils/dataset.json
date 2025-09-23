@@ -4,6 +4,7 @@
       "id": "u1",
       "name": "Alex Johnson",
       "email": "alex.johnson@email.com",
+      "creditScore": 750,
       "accounts": [
         {
           "id": "a1",
