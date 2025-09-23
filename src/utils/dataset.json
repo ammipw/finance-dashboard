@@ -1,84 +1,182 @@
 {
-  "user": {
-    "id": "u1",
-    "name": "Alex Johnson",
-    "profiles": [
-      {
-        "id": "p1",
-        "type": "Personal",
-        "transactions": [
-          {
-            "id": "t1",
-            "date": "2025-09-01",
-            "description": "Groceries - Whole Foods",
-            "category": "Food",
-            "amount": -82.45,
-            "paymentMethod": "Credit Card"
-          },
-          {
-            "id": "t2",
-            "date": "2025-09-02",
-            "description": "Salary - Tech Corp",
-            "category": "Income",
-            "amount": 4200.00,
-            "paymentMethod": "Bank Transfer"
-          },
-          {
-            "id": "t3",
-            "date": "2025-09-03",
-            "description": "Netflix Subscription",
-            "category": "Entertainment",
-            "amount": -15.99,
-            "paymentMethod": "Credit Card"
-          },
-          {
-            "id": "t4",
-            "date": "2025-09-04",
-            "description": "Gas Station",
-            "category": "Transport",
-            "amount": -45.10,
-            "paymentMethod": "Debit Card"
-          }
-        ]
-      },
-      {
-        "id": "p2",
-        "type": "Business",
-        "transactions": [
-          {
-            "id": "t5",
-            "date": "2025-09-01",
-            "description": "Client Payment - Design Project",
-            "category": "Income",
-            "amount": 2500.00,
-            "paymentMethod": "Bank Transfer"
-          },
-          {
-            "id": "t6",
-            "date": "2025-09-02",
-            "description": "Software License - Figma",
-            "category": "Business Expense",
-            "amount": -45.00,
-            "paymentMethod": "Credit Card"
-          },
-          {
-            "id": "t7",
-            "date": "2025-09-03",
-            "description": "Office Supplies",
-            "category": "Business Expense",
-            "amount": -123.40,
-            "paymentMethod": "Debit Card"
-          },
-          {
-            "id": "t8",
-            "date": "2025-09-04",
-            "description": "Coworking Space Rent",
-            "category": "Business Expense",
-            "amount": -600.00,
-            "paymentMethod": "Bank Transfer"
-          }
-        ]
-      }
-    ]
-  }
+  "users": [
+    {
+      "id": "u1",
+      "name": "Alex Johnson",
+      "email": "alex.johnson@email.com",
+      "accounts": [
+        {
+          "id": "a1",
+          "type": "personal",
+          "accountNumber": "1234567890",
+          "currency": "USD",
+          "balance": 5400.75,
+          "transactions": [
+            {
+              "id": "t1",
+              "date": "2025-09-01",
+              "description": "Salary",
+              "amount": 3500.00,
+              "type": "credit",
+              "category": "Income",
+              "paymentMethod": "Bank Transfer"
+            },
+            {
+              "id": "t2",
+              "date": "2025-09-03",
+              "description": "Grocery Store",
+              "amount": -120.45,
+              "type": "debit",
+              "category": "Groceries",
+              "paymentMethod": "Credit Card"
+            },
+            {
+              "id": "t3",
+              "date": "2025-09-05",
+              "description": "Electricity Bill",
+              "amount": -80.00,
+              "type": "debit",
+              "category": "Utilities",
+              "paymentMethod": "Direct Debit"
+            },
+            {
+              "id": "t7",
+              "date": "2025-09-07",
+              "description": "Dining Out",
+              "amount": -60.30,
+              "type": "debit",
+              "category": "Food & Dining",
+              "paymentMethod": "Credit Card"
+            },
+            {
+              "id": "t8",
+              "date": "2025-09-08",
+              "description": "Gym Membership",
+              "amount": -45.00,
+              "type": "debit",
+              "category": "Health & Fitness",
+              "paymentMethod": "Credit Card"
+            },
+            {
+              "id": "t9",
+              "date": "2025-09-09",
+              "description": "Freelance Project",
+              "amount": 800.00,
+              "type": "credit",
+              "category": "Income",
+              "paymentMethod": "PayPal"
+            },
+            {
+              "id": "t15",
+              "date": "2025-09-15",
+              "description": "Movie Tickets",
+              "amount": -30.00,
+              "type": "debit",
+              "category": "Entertainment",
+              "paymentMethod": "Credit Card"
+            },
+            {
+              "id": "t16",
+              "date": "2025-09-16",
+              "description": "Book Purchase",
+              "amount": -25.50,
+              "type": "debit",
+              "category": "Education",
+              "paymentMethod": "Credit Card"
+            },
+            {
+              "id": "t17",
+              "date": "2025-09-17",
+              "description": "Coffee Shop",
+              "amount": -15.75,
+              "type": "debit",
+              "category": "Food & Dining",
+              "paymentMethod": "Credit Card"
+            }
+          ]
+        },
+        {
+          "id": "a2",
+          "type": "business",
+          "accountNumber": "9876543210",
+          "currency": "USD",
+          "balance": 15200.00,
+          "transactions": [
+            {
+              "id": "t4",
+              "date": "2025-09-02",
+              "description": "Client Payment",
+              "amount": 5000.00,
+              "type": "credit",
+              "category": "Sales",
+              "paymentMethod": "Bank Transfer"
+            },
+            {
+              "id": "t5",
+              "date": "2025-09-04",
+              "description": "Office Supplies",
+              "amount": -300.00,
+              "type": "debit",
+              "category": "Office Expenses",
+              "paymentMethod": "Credit Card"
+            },
+            {
+              "id": "t6",
+              "date": "2025-09-06",
+              "description": "Internet Bill",
+              "amount": -100.00,
+              "type": "debit",
+              "category": "Utilities",
+              "paymentMethod": "Direct Debit"
+            },
+            {
+              "id": "t10",
+              "date": "2025-09-10",
+              "description": "Software Subscription",
+              "amount": -150.00,
+              "type": "debit",
+              "category": "Software",
+              "paymentMethod": "Credit Card"
+            },
+            {
+              "id": "t11",
+              "date": "2025-09-11",
+              "description": "Client Payment",
+              "amount": 3000.00,
+              "type": "credit",
+              "category": "Sales",
+              "paymentMethod": "Bank Transfer"
+            },
+            {
+              "id": "t12",
+              "date": "2025-09-12",
+              "description": "Travel Expenses",
+              "amount": -450.00,
+              "type": "debit",
+              "category": "Travel",
+              "paymentMethod": "Credit Card"
+            },
+            {
+              "id": "t13",
+              "date": "2025-09-13",
+              "description": "Consulting Fee",
+              "amount": 1200.00,
+              "type": "credit",
+              "category": "Income",
+              "paymentMethod": "PayPal"
+            },
+            {
+              "id": "t14",
+              "date": "2025-09-14",
+              "description": "Office Rent",
+              "amount": -2000.00,
+              "type": "debit",
+              "category": "Rent",
+              "paymentMethod": "Bank Transfer"
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
