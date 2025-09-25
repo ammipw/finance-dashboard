@@ -6,13 +6,10 @@ export default async function Home() {
   const user = await response.json()
 
   return (
-    <SidebarProvider>
-      <SideMenu />
-      <SidebarInset>
-        <div className="p-4">
-          <h1 className="text-2xl font-bold mb-4">{user.name}</h1>
-        </div>
-      </SidebarInset>
-    </SidebarProvider>
+    <SidebarInset>
+      <div className="p-4">
+        <h1 className="text-2xl font-bold mb-4">Hello {user.name.split(" ")[0]}</h1>
+      </div>
+    </SidebarInset>
   )
 }

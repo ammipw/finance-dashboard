@@ -1,6 +1,8 @@
 import type { Metadata } from "next"
 import { Geist } from "next/font/google"
 import "./globals.css"
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
+import { SideMenu } from "@/components"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,7 +20,13 @@ export default function RootLayout({ children }: Readonly<{
   return (
     <html lang="en">
       <body className={`${geistSans.variable} antialiased`}>
-        {children}
+        <SidebarProvider>
+          <SideMenu />
+          <main>
+            <SidebarTrigger />
+            {children}
+          </main>
+        </SidebarProvider>
       </body>
     </html>
   )
