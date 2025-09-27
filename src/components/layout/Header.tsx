@@ -13,10 +13,18 @@ export default function Header({username}: {username: string}) {
           <h1 className="text-2xl font-bold">Hello {username}</h1>
         </div>
         <div className="flex">
-          <Search className="w-5 h-5 text-gray-500 mr-4" />
-          <Bell className="w-5 h-5 text-gray-500 mr-4" />
-          <MessageCircleMore className="w-5 h-5 text-gray-500 mr-4" />
-          <Settings className="w-5 h-5 text-gray-500 mr-4" />
+          <Button variant="ghost">
+            <Search className="w-5 h-5 text-gray-500" />
+          </Button>
+          <Button variant="ghost">
+            <Bell className="w-5 h-5 text-gray-500" />
+          </Button>
+          <Button variant="ghost">
+            <MessageCircleMore className="w-5 h-5 text-gray-500" />
+          </Button>
+          <Button variant="ghost">
+            <Settings className="w-5 h-5 text-gray-500" />
+          </Button>
         </div>
       </div>
     </header>

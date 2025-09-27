@@ -1,3 +1,4 @@
+import { User } from "@/types"
 import { dataset as db } from "@/utils/data"
 
 export async function GET(request: Request, { params }: { params: { userId: string } }) {
@@ -22,7 +23,7 @@ export async function GET(request: Request, { params }: { params: { userId: stri
     currency: account.currency,
     balance: account.balance,
   }))
-  const userData = { id, name, email, accounts: accountSummaries }
+  const userData: User = { id, name, email, accounts: accountSummaries }
 
   return new Response(
     JSON.stringify(userData),

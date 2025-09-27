@@ -3,19 +3,24 @@
 import { CreditCard, HelpCircle, Home, LogOut, Moon, PiggyBank, Receipt, Settings, Wallet } from "lucide-react"
 import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarRail, SidebarSeparator } from "../ui/sidebar"
 import { Button } from "../ui/button"
+import AccountPicker from "./AccountPicker"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
 
 const navItems = [
-  { label: "Overview", icon: Home },
-  { label: "Savings", icon: PiggyBank },
-  { label: "Cards", icon: CreditCard },
-  { label: "Payments", icon: Receipt },
+  { label: "Overview", url: "/overview", icon: Home },
+  { label: "Savings", url: "/savings", icon: PiggyBank },
+  { label: "Cards", url: "/cards", icon: CreditCard },
+  { label: "Transactions", url: "/transactions", icon: Receipt },
 ]
 
 export default function SideMenu() {
+  const pathname = usePathname()
+
   return (
     <Sidebar collapsible="icon">
       <SidebarHeader>
-        <div className="text-lg font-bold p-4 group-data-[collapsible=icon]:invisible">Finance Dashboard</div>
+        <AccountPicker />
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
@@ -23,28 +28,30 @@ export default function SideMenu() {
             <SidebarMenu>
               {navItems.map((item) => (
                 <SidebarMenuItem key={item.label}>
-                  <SidebarMenuButton size="lg">
-                    <span><item.icon /></span>
-                    <span className="group-data-[collapsible=icon]:hidden">{item.label}</span>
-                  </SidebarMenuButton>
+                    <SidebarMenuButton asChild isActive={pathname === item.url}>
+                    <Link href={item.url}>
+                      <item.icon />
+                      {item.label}
+                    </Link>
+                    </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
               <SidebarSeparator />
               <SidebarMenuItem>
-                <SidebarMenuButton size="lg">
-                  <span><HelpCircle /></span>
+                <SidebarMenuButton>
+                  <HelpCircle />
                   <span className="group-data-[collapsible=icon]:hidden">Support</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <SidebarMenuButton size="lg">
-                  <span><Settings /></span>
+                <SidebarMenuButton>
+                  <Settings />
                   <span className="group-data-[collapsible=icon]:hidden">Settings</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <SidebarMenuButton size="lg">
-                  <span><Moon /></span>
+                <SidebarMenuButton>
+                  <Moon />
                   <span className="group-data-[collapsible=icon]:hidden">Theme</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
@@ -53,7 +60,7 @@ export default function SideMenu() {
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
-        <Button variant="ghost" size="lg" className="justify-start">
+        <Button variant="ghost" className="justify-start">
           <LogOut /> Logout
         </Button>
       </SidebarFooter>
