@@ -1,13 +1,15 @@
-import { User } from "@/types"
-import { dataset as db } from "@/utils/data"
+import { database as db } from "@/utils/data"
 
-export async function GET(request: Request, { params }: { params: { userId: string } }) {
+/**
+ * Handles GET requests for a specific user by userId.
+ * @param _req The incoming request object.
+ * @param params The route parameters containing userId.
+ * @returns A Response object with the user details or an error message.
+ */
+export async function GET(_req: Request, { params }: { params: { userId: string } }) {
   const { userId } = await params
-  const users = db.users
-  const user = users.find(user => user.id === userId)
-  
-  console.log("Requested user ID:", userId)
-  
+
+  const user = db.users.find(user => user.id === userId)
   if (!user) {
     return new Response(
       JSON.stringify({ message: "User not found" }),
@@ -23,7 +25,7 @@ export async function GET(request: Request, { params }: { params: { userId: stri
     currency: account.currency,
     balance: account.balance,
   }))
-  const userData: User = { id, name, email, accounts: accountSummaries }
+  const userData = { id, name, email, accounts: accountSummaries }
 
   return new Response(
     JSON.stringify(userData),

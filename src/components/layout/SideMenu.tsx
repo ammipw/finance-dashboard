@@ -8,7 +8,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 
 const navItems = [
-  { label: "Overview", url: "/overview", icon: Home },
+  { label: "Home", url: "/", icon: Home },
   { label: "Savings", url: "/savings", icon: PiggyBank },
   { label: "Cards", url: "/cards", icon: CreditCard },
   { label: "Transactions", url: "/transactions", icon: Receipt },
