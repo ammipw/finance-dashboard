@@ -1,5 +1,4 @@
 import { database as db } from "@/utils/data"
-import { Currency } from "lucide-react"
 
 /**
  * Handles GET requests for all transactions of a specific account of a user.
@@ -30,7 +29,7 @@ export async function GET(_req: Request, { params }: { params: { userId: string,
     id: account.id,
     type: account.type,
     accountNumber: account.accountNumber,
-    Currency: account.currency,
+    currency: account.currency,
     balance: account.balance,
   }
 
