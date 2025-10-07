@@ -12,7 +12,7 @@ export default async function Home() {
   return (
     <SidebarInset>
       <Header username={user.name.split(" ")[0]} />
-      <Card className="mx-8 mt-8">
+      <Card className="mx-6 mt-6">
         <CardHeader>
           <CardTitle>
             <div className="flex items-center justify-between">
