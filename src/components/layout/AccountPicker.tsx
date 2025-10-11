@@ -4,65 +4,67 @@ import { useEffect, useState } from "react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from "@/components/ui/dropdown-menu"
 import { Button } from "@/components/ui/button"
-
-type Account = {
-  id: string
-  name: string
-}
-
-type User = {
-  name: string
-  avatarUrl?: string
-}
-
-const mockUser: User = {
-  name: "Alex Johnson",
-  avatarUrl: "https://ui-avatars.com/api/?name=Alex+Johnson",
-}
+import { Account, User } from "@/types"
+import { useAccount, useUser } from "@/hooks"
 
 export default function AccountPicker() {
-  const [user, setUser] = useState<User>(mockUser)
-  const [accounts, setAccounts] = useState<Account[]>([])
-  const [selectedAccount, setSelectedAccount] = useState<Account | null>(null)
+  const id = useUser((user:any) => user.id)
+  const name = useUser((user:any) => user.name)
+  const email = useUser((user:any) => user.email)
+  const avatarUrl = useUser((user:any) => user.avatarUrl)
+  const accounts = useUser((user:any) => user.accounts)
+  const setUser = useUser((user:any) => user.setUser)
+
+  const accountId = useAccount((account:any) => account.id)
+  const accountType = useAccount((account:any) => account.type)
+  const setAccount = useAccount((account:any) => account.setAccount)
 
   useEffect(() => {
-    // TODO - implement api route to fetch accounts for a user
-    // fetch("/api/u1/accounts")
-    //   .then((res) => res.json())
-    //   .then((data: Account[]) => {
-    //     setAccounts(data)
-    //     if (data.length > 0) setSelectedAccount(data[0])
-    //   })
+    async function fetchAccount() {
+      const res = await fetch("http://localhost:3000/api/users/u1/accounts")
+      const data: Account[] = (await res.json()).accounts
+      setAccount(data[0])
+    }
 
-    setAccounts([
-      { id: "a1", name: "Checking" },
-      { id: "a2", name: "Savings" },
-      { id: "a3", name: "Credit Card" },
-    ])
-    setSelectedAccount({ id: "a1", name: "Checking" })
+    async function fetchUser() {
+      const res = await fetch("http://localhost:3000/api/users/u1")
+      const data: User = await res.json()
+      setUser(data)
+    }
+
+    fetchUser()
+    fetchAccount()
   }, [])
+
+  // useEffect(() => {
+  //   console.log("User updated:", { id, name, email, avatarUrl })
+  // }, [id, name, email, avatarUrl])
+
+  // useEffect(() => {
+  //   console.log("Account updated:", { accountId, accountType })
+  // }, [accountId, accountType])
 
   return (
     <div className="flex items-center gap-4">
       <Avatar>
-        <AvatarImage src={user.avatarUrl} alt={user.name} />
-        <AvatarFallback>{user.name[0]}</AvatarFallback>
+        <AvatarImage src={avatarUrl} alt={name} />
+        <AvatarFallback>{name[0]}</AvatarFallback>
       </Avatar>
       <div>
-        <div className="font-medium">{user.name}</div>
+        <div className="font-medium">{name}</div>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" size="sm" className="mt-1">
-              {selectedAccount ? selectedAccount.name : "Select Account"}
+              {accountId ? `${accountId} - ${accountType}` : "Select Account"}
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent>
-            {accounts.map((account) => (
+            {accounts.map((account:Account) => (
               <DropdownMenuItem
                 key={account.id}
-                onClick={() => setSelectedAccount(account)}
+                onClick={() => setAccount(account)}
               >
-                {account.name}
+                {account.id} - {account.type}
               </DropdownMenuItem>
             ))}
           </DropdownMenuContent>

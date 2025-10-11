@@ -17,7 +17,7 @@ export async function GET(_req: Request, { params }: { params: { userId: string 
     )
   }
   
-  const { id, name, email, accounts = [] } = user
+  const { id, name, email, avatarUrl, accounts = [] } = user
   const accountSummaries = accounts.map(account => ({
     id: account.id,
     type: account.type,
@@ -25,7 +25,7 @@ export async function GET(_req: Request, { params }: { params: { userId: string 
     currency: account.currency,
     balance: account.balance,
   }))
-  const userData = { id, name, email, accounts: accountSummaries }
+  const userData = { id, name, email, avatarUrl, accounts: accountSummaries }
 
   return new Response(
     JSON.stringify(userData),

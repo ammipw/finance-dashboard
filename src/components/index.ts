@@ -1,2 +1,8 @@
 export { default as SideMenu } from "./layout/SideMenu"
 export { default as Header } from "./layout/Header"
+export { default as AccountPicker } from "./layout/AccountPicker"
+export { default as OverviewCard } from "./dashboard/OverviewCard"
+export { default as TransactionsList } from "./dashboard/TransactionsList"
+// export { default as TransactionsTable } from "./dashboard/TransactionsTable"
+// export { default as SpendingChart } from "./dashboard/SpendingChart"
+// export { default as ActivityFeed } from "./dashboard/ActivityFeed"

@@ -31,7 +31,7 @@ export default function SideMenu() {
                     <SidebarMenuButton asChild isActive={pathname === item.url}>
                     <Link href={item.url}>
                       <item.icon />
-                      {item.label}
+                      <span className="group-data-[collapsible=icon]:hidden">{item.label}</span>
                     </Link>
                     </SidebarMenuButton>
                 </SidebarMenuItem>
@@ -61,7 +61,8 @@ export default function SideMenu() {
       </SidebarContent>
       <SidebarFooter>
         <Button variant="ghost" className="justify-start">
-          <LogOut /> Logout
+          <LogOut />
+          <span className="group-data-[collapsible=icon]:hidden">Logout</span>
         </Button>
       </SidebarFooter>
       <SidebarRail />

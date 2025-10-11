@@ -4,6 +4,7 @@
       "id": "u1",
       "name": "Alex Johnson",
       "email": "alex.johnson@email.com",
+      "avatarUrl": "https://ui-avatars.com/api/?name=Alex+Johnson",
       "creditScore": 750,
       "accounts": [
         {
