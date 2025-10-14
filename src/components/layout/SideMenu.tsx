@@ -6,6 +6,7 @@ import { Button } from "../ui/button"
 import AccountPicker from "./AccountPicker"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { ModeToggle } from "../ModeToggle"
 
 const navItems = [
   { label: "Home", url: "/", icon: Home },
@@ -50,10 +51,7 @@ export default function SideMenu() {
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <SidebarMenuButton>
-                  <Moon />
-                  <span className="group-data-[collapsible=icon]:hidden">Theme</span>
-                </SidebarMenuButton>
+                <ModeToggle />
               </SidebarMenuItem>
             </SidebarMenu>
           </SidebarGroupContent>
